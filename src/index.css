@@ -700,3 +700,21 @@ body.dark .channel-card {
         grid-template-columns: 1fr;
     }
 }
+
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.filter-buttons button {
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.active-filter {
+    background: black;
+    color: white;
+}
