@@ -57,7 +57,7 @@ a {
 }
 
 .search-input {
-    max-width: 520px;
+    max-width: 420px;
     height: 42px;
     border-radius: 25px;
     border: 1px solid #ccc;
@@ -172,7 +172,8 @@ a {
     display: grid;
     grid-template-columns:
         repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
+    gap: 32px;
+    box-shadow: 1 2px 10px rgba(0, 0, 0, .08);
 }
 
 /* ============= VIDEO CARD  =========== */
@@ -188,8 +189,9 @@ a {
 }
 
 .video-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     background: #f1f1f1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
 }
 
 .video-thumbnail {
@@ -632,6 +634,40 @@ body.dark .channel-card {
     background: #cc0000;
 }
 
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile span {
+    background: #f1f1f1;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.filter-buttons button {
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.active-filter {
+    background: black;
+    color: white;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 @media (max-width: 1024px) {
@@ -699,22 +735,4 @@ body.dark .channel-card {
     .video-grid {
         grid-template-columns: 1fr;
     }
-}
-
-.filter-buttons {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 25px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-}
-
-.filter-buttons button {
-    border-radius: 20px;
-    white-space: nowrap;
-}
-
-.active-filter {
-    background: black;
-    color: white;
 }
