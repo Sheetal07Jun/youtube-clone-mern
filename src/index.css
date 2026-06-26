@@ -987,6 +987,9 @@ body.dark .history-card {
     box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
 }
 
+
+/* ========  Dark Theme ======= */
+
 body.dark .history-card h3,
 body.dark .history-card p {
     color: white;
