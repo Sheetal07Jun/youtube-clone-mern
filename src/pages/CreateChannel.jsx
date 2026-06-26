@@ -44,7 +44,7 @@ function CreateChannel() {
         <div style={{ padding: "20px" }}>
             <h1>Create Channel</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="create-channel-card" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Channel Name"
@@ -77,7 +77,7 @@ function CreateChannel() {
 
                 <br /><br />
 
-                <button type="submit">
+                <button className="create-channel-btn" type="submit">
                     Create Channel
                 </button>
             </form>
