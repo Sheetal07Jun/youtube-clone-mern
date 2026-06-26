@@ -115,140 +115,97 @@ function Profile() {
     }
 
     return (
-        <div style={{ padding: "20px" }}>
-            <h1>👤 My Profile</h1>
+        <div className="profile-page">
+            <div className="profile-header-card">
+                <img
+                    src="/avtaar.avif"
+                    alt="Profile"
+                    className="profile-avatar"
+                />
 
-            <hr />
+                <div className="profile-user-info">
+                    <h1>{user.username}</h1>
+                    <p>{user.email}</p>
 
-            <div
-                style={{
-                    border: "1px solid #ccc",
-                    padding: "20px",
-                    borderRadius: "10px",
-                    marginBottom: "20px",
-                }}
-            >
-                <h2>{user.username}</h2>
+                    <div className="profile-stats">
+                        <div>
+                            <h3>{user.channels?.length || 0}</h3>
+                            <span>Channels</span>
+                        </div>
 
-                <p>
-                    <strong>Email:</strong>{" "}
-                    {user.email}
-                </p>
+                        <div>
+                            <h3>{user.subscriptions?.length || 0}</h3>
+                            <span>Subscriptions</span>
+                        </div>
 
-                <p>
-                    <strong>User ID:</strong>{" "}
-                    {user._id}
-                </p>
+                        <div>
+                            <h3>{myVideos.length}</h3>
+                            <span>Videos</span>
+                        </div>
+                    </div>
 
-                <p>
-                    <strong>Channels:</strong>{" "}
-                    {user.channels?.length || 0}
-                </p>
-
-                <p>
-                    <strong>Subscriptions:</strong>{" "}
-                    {user.subscriptions?.length || 0}
-                </p>
-
-                <button onClick={logout}>
-                    Logout
-                </button>
+                    <button className="logout-btn" onClick={logout}>
+                        Logout
+                    </button>
+                </div>
             </div>
 
-            <hr />
+            <div className="profile-section">
+                <h2>📂 My Playlists</h2>
 
-            <h2>📂 My Playlists</h2>
-
-            {playlists.length === 0 ? (
-                <p>No playlists created yet.</p>
-            ) : (
-                playlists.map((playlist) => (
-                    <div
-                        key={playlist._id}
-                        style={{
-                            border: "1px solid gray",
-                            padding: "10px",
-                            marginBottom: "10px",
-                            borderRadius: "8px",
-                        }}
-                    >
-                        <h3>{playlist.name}</h3>
-
-                        <p>
-                            Videos:{" "}
-                            {playlist.videos?.length || 0}
-                        </p>
+                {playlists.length === 0 ? (
+                    <p className="empty-text">No playlists created yet.</p>
+                ) : (
+                    <div className="profile-grid">
+                        {playlists.map((playlist) => (
+                            <div key={playlist._id} className="profile-mini-card">
+                                <h3>{playlist.name}</h3>
+                                <p>{playlist.videos?.length || 0} videos</p>
+                            </div>
+                        ))}
                     </div>
-                ))
-            )}
+                )}
+            </div>
 
-            <hr />
+            <div className="profile-section">
+                <h2>🕒 Recently Watched</h2>
 
-            <h2>🕒 Recently Watched</h2>
-
-            {history.length === 0 ? (
-                <p>No watch history yet.</p>
-            ) : (
-                history.slice(0, 5).map((item) => (
-                    <div
-                        key={item._id}
-                        style={{
-                            border: "1px solid #ccc",
-                            padding: "10px",
-                            marginBottom: "10px",
-                            borderRadius: "8px",
-                        }}
-                    >
-                        <img
-                            src={item.videoId?.thumbnailUrl}
-                            alt={item.videoId?.title}
-                            width="220"
-                        />
-
-                        <h4>
-                            {item.videoId?.title}
-                        </h4>
-
-                        <p>
-                            {item.videoId?.views} views
-                        </p>
+                {history.length === 0 ? (
+                    <p className="empty-text">No watch history yet.</p>
+                ) : (
+                    <div className="profile-grid">
+                        {history.slice(0, 5).map((item) => (
+                            <div key={item._id} className="profile-video-card">
+                                <img
+                                    src={item.videoId?.thumbnailUrl}
+                                    alt={item.videoId?.title}
+                                />
+                                <h4>{item.videoId?.title}</h4>
+                                <p>{item.videoId?.views} views</p>
+                            </div>
+                        ))}
                     </div>
-                ))
-            )}
+                )}
+            </div>
 
-            <hr />
+            <div className="profile-section">
+                <h2>🎥 My Uploaded Videos</h2>
 
-            <h2>🎥 My Uploaded Videos</h2>
-
-            {myVideos.length === 0 ? (
-                <p>No uploaded videos yet.</p>
-            ) : (
-                myVideos.map((video) => (
-                    <div
-                        key={video._id}
-                        style={{
-                            border: "1px solid #ccc",
-                            padding: "10px",
-                            marginBottom: "10px",
-                            borderRadius: "8px",
-                        }}
-                    >
-                        <img
-                            src={video.thumbnailUrl}
-                            alt={video.title}
-                            width="220"
-                        />
-
-                        <h4>{video.title}</h4>
-
-                        <p>
-                            {video.views} views
-                        </p>
+                {myVideos.length === 0 ? (
+                    <p className="empty-text">No uploaded videos yet.</p>
+                ) : (
+                    <div className="profile-grid">
+                        {myVideos.map((video) => (
+                            <div key={video._id} className="profile-video-card">
+                                <img src={video.thumbnailUrl} alt={video.title} />
+                                <h4>{video.title}</h4>
+                                <p>{video.views} views</p>
+                            </div>
+                        ))}
                     </div>
-                ))
-            )}
+                )}
+            </div>
         </div>
     );
 }
-
-export default Profile;
+    export default Profile;
