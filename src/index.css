@@ -9,7 +9,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #f9f9f9;
-    padding-top: 25px;
+    padding-top: 0px;
 }
 
 a {
@@ -34,27 +34,36 @@ a {
 }
 
 .logo {
-    color: red;
-    font-size: 30px;
+    color: #ff0000;
+    font-size: 28px;
     font-weight: bold;
-    min-width: 220px;
+    min-width: 210px;
 
 }
 
 .navbar-center {
     flex: 1;
     display: flex;
-    justify-content: center;
     padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    height: 72px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .search-input {
-    width: 500px;
+    max-width: 520px;
     height: 42px;
     border-radius: 25px;
     border: 1px solid #ccc;
     padding-left: 20px;
     font-size: 15px;
+    flex: 1;
 }
 
 .search-input:focus {
@@ -64,7 +73,15 @@ a {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.nav-links span {
+    font-weight: 600;
+    background: #f2f2f2;
+    padding: 8px 12px;
+    border-radius: 20px;
 }
 
 .nav-links a {
@@ -87,6 +104,11 @@ a {
     background: #f2f2f2;
 }
 
+.nav-links button {
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
 /* ============ APP LAYOUT =========== */
 
 .app-layout {
@@ -100,8 +122,11 @@ a {
     width: 220px;
     background: #fff;
     padding: 20px;
-    min-height: calc(100vh - 60px);
+    height: calc(100vh - 72px);
     border-right: 1px solid #ddd;
+    position: sticky;
+    top: 72px;
+
 }
 
 .sidebar a {
@@ -154,20 +179,24 @@ a {
 
 .video-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
     transition: 0.3s;
     cursor: pointer;
+    box-shadow: none;
+
 }
 
 .video-card:hover {
     transform: translateY(-4px);
+    background: #f1f1f1;
 }
 
 .video-thumbnail {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    line-height: 1.4;
 }
 
 .video-info {
@@ -218,10 +247,12 @@ button {
     cursor: pointer;
     background: #e5e5e5;
     transition: 0.3s;
+    font-weight: 600;
 }
 
 button:hover {
     opacity: 0.9;
+    background: #dcdcdc;
 }
 
 /* ================ FORMS ============= */
