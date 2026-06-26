@@ -682,6 +682,32 @@ body.dark .profile-stats div {
     background: #2b2b2b;
 }
 
+/* ===== DARK MODE NAVBAR FIX ===== */
+
+body.dark .navbar-center {
+    background: #181818;
+    border-bottom: 1px solid #333;
+}
+
+body.dark .nav-links a,
+body.dark .nav-links span {
+    color: white;
+}
+
+body.dark .logo {
+    color: #ff0000;
+}
+
+body.dark .main-content {
+    background: #121212;
+}
+
+body.dark .profile-user-info p,
+body.dark .empty-text,
+body.dark .profile-stats span {
+    color: #aaa;
+}
+
 .logout-btn {
     width: 100%;
     padding: 12px;
