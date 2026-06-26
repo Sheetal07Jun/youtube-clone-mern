@@ -8,7 +8,9 @@ function Channel() {
     const [channel, setChannel] = useState(null);
     const [subscribers, setSubscribers] = useState(0);
     const [videos, setVideos] = useState([]);
-    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [isSubscribed, setIsSubscribed] = useState(false); const [editVideoId, setEditVideoId] = useState(null);
+    const [editTitle, setEditTitle] = useState("");
+    const [editDescription, setEditDescription] = useState("");
 
     useEffect(() => {
         fetchChannel();
@@ -99,6 +101,65 @@ function Channel() {
         }
     };
 
+    const startEditVideo = (video) => {
+        setEditVideoId(video._id);
+        setEditTitle(video.title);
+        setEditDescription(video.description);
+    };
+
+    const updateVideo = async (videoId) => {
+        if (!editTitle.trim()) {
+            alert("Title cannot be empty");
+            return;
+        }
+
+        try {
+            const token = localStorage.getItem("token");
+
+            await API.put(
+                `/videos/${videoId}`,
+                {
+                    title: editTitle,
+                    description: editDescription,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            setEditVideoId(null);
+            setEditTitle("");
+            setEditDescription("");
+
+            fetchVideos();
+
+            alert("Video updated successfully");
+        } catch (error) {
+            console.log(error);
+            alert("Video update failed");
+        }
+    };
+
+    const deleteVideo = async (videoId) => {
+        try {
+            const token = localStorage.getItem("token");
+
+            await API.delete(`/videos/${videoId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            setVideos(videos.filter((video) => video._id !== videoId));
+
+            alert("Video deleted successfully");
+        } catch (error) {
+            console.log(error);
+            alert("Video delete failed");
+        }
+    };
     if (!channel) {
         return <h2>Loading...</h2>;
     }
