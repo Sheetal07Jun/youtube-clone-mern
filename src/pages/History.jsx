@@ -36,34 +36,29 @@ function History() {
             {history.length === 0 ? (
                 <p>No videos watched yet.</p>
             ) : (
-                history.map((item) => (
-                    <div key={item._id} className="history-card">
-                        <Link
-                            to={`/video/${item.videoId?._id}`}
-                        >
-                            <img
-                                src={video.thumbnailUrl}
-                                alt={video.title}
-                                className="history-thumbnail"
-                            />
-                        </Link>
+                <div className="history-grid">
+                    {history.map((item) => (
+                        <div key={item._id} className="history-card">
+                            <Link to={`/video/${item.videoId?._id}`}>
+                                <img
+                                    src={item.videoId?.thumbnailUrl}
+                                    alt={item.videoId?.title}
+                                    className="history-thumbnail"
+                                />
+                            </Link>
 
-                        <h3>
-                            {
-                                item.videoId
-                                    ?.title
-                            }
-                        </h3>
+                            <div className="history-content">
+                                <h3 className="history-title">
+                                    {item.videoId?.title}
+                                </h3>
 
-                        <p>
-                            {
-                                item.videoId
-                                    ?.views
-                            }{" "}
-                            views
-                        </p>
-                    </div>
-                ))
+                                <p className="history-views">
+                                    {item.videoId?.views} views
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             )}
         </div>
     );
