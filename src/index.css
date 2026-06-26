@@ -631,3 +631,72 @@ body.dark .channel-card {
 .logout-btn:hover {
     background: #cc0000;
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 1024px) {
+    .navbar-center {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .trending-card {
+        flex-direction: column;
+    }
+
+    .trending-thumbnail {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        position: static;
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+    }
+
+    .sidebar a {
+        white-space: nowrap;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .home h1 {
+        font-size: 28px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 260px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
