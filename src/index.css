@@ -660,6 +660,52 @@ body.dark .channel-card {
     font-size: 16px;
 }
 
+
+/* ===== CREATE VIDEO PAGE ===== */
+
+.create-video-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.create-video-card {
+    width: 100%;
+    max-width: 560px;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.create-video-page h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.create-video-card input,
+.create-video-card textarea {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.create-video-card textarea {
+    min-height: 120px;
+}
+
+.create-video-btn {
+    width: 100%;
+    background: #ff0000;
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+body.dark .create-video-card {
+    background: #202020;
+}
 /* ===== CREATE CHANNEL PAGE ===== */
 
 .create-channel-page {
