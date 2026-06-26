@@ -1020,6 +1020,23 @@ body.dark .active-filter {
     color: black;
 }
 
+body.dark .playlist-content p {
+    color: #aaa;
+}
+
+body.dark .subscription-card {
+    background: #202020;
+}
+
+body.dark .subscription-card p {
+    color: #aaa;
+}
+
+body.dark .subscription-card span {
+    background: #2b2b2b;
+    color: #ddd;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 @media (max-width: 1024px) {
@@ -1058,7 +1075,17 @@ body.dark .active-filter {
     }
 
     .main-video-player {
-        height: 230px;
+        height: 260px;
+    }
+
+    .profile-header-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-stats {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .sidebar {
