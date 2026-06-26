@@ -14,7 +14,10 @@ function CreateVideo() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        if (!title || !description || !thumbnailUrl || !videoUrl || !category) {
+            alert("Please fill all fields");
+            return;
+        }
         try {
             const token =
                 localStorage.getItem("token");
@@ -56,9 +59,12 @@ function CreateVideo() {
 
     return (
         <div className="create-video-page">
-            <h1>Upload Video</h1>
-
             <form className="create-video-card" onSubmit={handleSubmit}>
+                <h1>Upload Video</h1>
+
+                <p className="upload-subtitle">
+                    Share your video with everyone
+                </p>
                 <input
                     type="text"
                     placeholder="Title"
@@ -108,16 +114,18 @@ function CreateVideo() {
 
                 <br /><br />
 
-                <input
-                    type="text"
-                    placeholder="Category"
+                <select
                     value={category}
-                    onChange={(e) =>
-                        setCategory(
-                            e.target.value
-                        )
-                    }
-                />
+                    onChange={(e) => setCategory(e.target.value)}
+                >
+                    <option value="">Select Category</option>
+                    <option value="Education">Education</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Music">Music</option>
+                    <option value="News">News</option>
+                </select>
 
                 <br /><br />
 

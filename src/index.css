@@ -1096,6 +1096,24 @@ body.dark .history-card {
 
 /* ========  Dark Theme ======= */
 
+.upload-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.create-video-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.create-video-card select {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* ========  Dark Theme ======= */
+
 body.dark .history-card h3,
 body.dark .history-card p {
     color: white;
