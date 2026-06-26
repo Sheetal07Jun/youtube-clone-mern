@@ -55,10 +55,10 @@ function CreateVideo() {
     };
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div className="create-video-page">
             <h1>Upload Video</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="create-video-card" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Title"
@@ -121,7 +121,7 @@ function CreateVideo() {
 
                 <br /><br />
 
-                <button type="submit">
+                <button className="create-video-btn" type="submit">
                     Upload Video
                 </button>
             </form>
