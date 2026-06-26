@@ -1,3 +1,9 @@
+# GITHUB LINK
+
+https://github.com/Sheetal07Jun/youtube-clone-mern
+
+
+
 #  YouTube Clone - MERN Stack
 
 A full-stack YouTube Clone built using the MERN Stack (MongoDB, Express.js, React.js, Node.js). This project allows users to register, log in, upload videos, create channels, watch videos, like/dislike videos, comment, manage playlists, subscribe to channels, and maintain watch history.
@@ -82,7 +88,7 @@ A full-stack YouTube Clone built using the MERN Stack (MongoDB, Express.js, Reac
 
 ---
 
-## 🔍 Search
+## Search
 
 - Search videos by title
 
