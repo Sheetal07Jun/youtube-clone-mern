@@ -987,7 +987,10 @@ body.dark .history-card {
     box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
 }
 
-
+body.dark .history-card h3,
+body.dark .history-card p {
+    color: white;
+}
 
 body.dark .video-title {
     color: white;
@@ -999,6 +1002,22 @@ body.dark .trending-title {
 
 body.dark .channel-name {
     color: #aaa;
+}
+
+
+body.dark .user-profile span {
+    background: #2b2b2b;
+    color: white;
+}
+
+body.dark .filter-buttons button {
+    background: #2b2b2b;
+    color: white;
+}
+
+body.dark .active-filter {
+    background: white;
+    color: black;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -1036,6 +1055,10 @@ body.dark .channel-name {
 @media (max-width: 768px) {
     .app-layout {
         flex-direction: column;
+    }
+
+    .main-video-player {
+        height: 230px;
     }
 
     .sidebar {
