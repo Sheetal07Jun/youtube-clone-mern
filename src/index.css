@@ -858,6 +858,97 @@ body.dark .profile-stats span {
     background: #ddd;
 }
 
+
+/* ===== CHANNEL PAGE UI ===== */
+
+.channel-page {
+    padding: 35px;
+}
+
+.channel-page h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.channel-page>p {
+    color: #606060;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.channel-page h3 {
+    margin-bottom: 12px;
+}
+
+.channel-page>button {
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 10px 22px;
+    font-weight: 700;
+}
+
+.channel-page h2 {
+    font-size: 28px;
+    margin: 25px 0 20px;
+}
+
+.channel-video-card {
+    width: 330px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+    padding-bottom: 14px;
+}
+
+.channel-video-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.channel-video-card h3,
+.channel-video-card p {
+    padding: 0 14px;
+}
+
+.channel-video-card h3 {
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.channel-video-card p {
+    color: #606060;
+    margin-bottom: 10px;
+}
+
+.channel-video-card button {
+    margin-left: 14px;
+    margin-top: 8px;
+    border-radius: 20px;
+}
+
+body.dark .channel-video-card {
+    background: #202020;
+}
+
+body.dark .channel-page>p,
+body.dark .channel-video-card p {
+    color: #aaa;
+}
+
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+
+.history-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
 /* ===== RESPONSIVE DESIGN ===== */
 
 @media (max-width: 1024px) {

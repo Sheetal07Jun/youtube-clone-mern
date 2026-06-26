@@ -165,7 +165,7 @@ function Channel() {
     }
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div className="channel-page">
             <h1>{channel.channelName}</h1>
 
             <p>{channel.description}</p>
@@ -212,27 +212,62 @@ function Channel() {
                 <p>No videos uploaded yet.</p>
             ) : (
                 videos.map((video) => (
-                    <div
-                        key={video._id}
-                        style={{
-                            marginBottom: "20px",
-                        }}
-                    >
+                    <div key={video._id} className="channel-video-card">
                         <Link
                             to={`/video/${video._id}`}
                         >
                             <img
                                 src={video.thumbnailUrl}
                                 alt={video.title}
-                                width="300"
                             />
                         </Link>
 
-                        <h3>{video.title}</h3>
+                        {editVideoId === video._id ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={editTitle}
+                                    onChange={(e) => setEditTitle(e.target.value)}
+                                    placeholder="Edit title"
+                                />
 
-                        <p>
-                            {video.views} views
-                        </p>
+                                <br />
+                                <br />
+
+                                <textarea
+                                    value={editDescription}
+                                    onChange={(e) => setEditDescription(e.target.value)}
+                                    placeholder="Edit description"
+                                />
+
+                                <br />
+                                <br />
+
+                                <button onClick={() => updateVideo(video._id)}>
+                                    Save
+                                </button>
+
+                                <button onClick={() => setEditVideoId(null)}>
+                                    Cancel
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <h3>{video.title}</h3>
+
+                                <p>
+                                    {video.views} views
+                                </p>
+
+                                <button onClick={() => startEditVideo(video)}>
+                                    Edit
+                                </button>
+
+                                <button onClick={() => deleteVideo(video._id)}>
+                                    Delete
+                                </button>
+                            </>
+                        )}
                     </div>
                 ))
             )}
