@@ -14,6 +14,8 @@ function Video() {
 
     const [comments, setComments] = useState([]);
     const [commentText, setCommentText] = useState("");
+    const [editCommentId, setEditCommentId] = useState(null);
+    const [editCommentText, setEditCommentText] = useState("");
     const [recommendedVideos, setRecommendedVideos] = useState([]);
 
     useEffect(() => {
@@ -139,6 +141,10 @@ function Video() {
     };
 
     const addComment = async () => {
+        if (!commentText.trim()) {
+            alert("Please write a comment");
+            return;
+        }
         try {
             const token =
                 localStorage.getItem("token");
@@ -164,6 +170,66 @@ function Video() {
             setCommentText("");
         } catch (error) {
             console.log(error);
+        }
+    };
+    const deleteComment = async (commentId) => {
+        try {
+            const token = localStorage.getItem("token");
+
+            await API.delete(`/comments/${commentId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            setComments(
+                comments.filter((comment) => comment._id !== commentId)
+            );
+
+            alert("Comment deleted");
+        } catch (error) {
+            console.log(error);
+            alert("Delete failed");
+        }
+    };
+    const startEditComment = (comment) => {
+        setEditCommentId(comment._id);
+        setEditCommentText(comment.text);
+    };
+
+    const updateComment = async (commentId) => {
+        if (!editCommentText.trim()) {
+            alert("Comment cannot be empty");
+            return;
+        }
+        try {
+            const token = localStorage.getItem("token");
+
+            await API.put(
+                `/comments/${commentId}`,
+                { text: editCommentText },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            setComments(
+                comments.map((comment) =>
+                    comment._id === commentId
+                        ? { ...comment, text: editCommentText }
+                        : comment
+                )
+            );
+
+            setEditCommentId(null);
+            setEditCommentText("");
+
+            alert("Comment updated");
+        } catch (error) {
+            console.log(error);
+            alert("Update failed");
         }
     };
 
@@ -293,11 +359,33 @@ function Video() {
                             borderRadius: "5px",
                         }}
                     >
-                        <strong>
-                            {comment.userId?.username}
-                        </strong>
+                        <strong>{comment.userId?.username}</strong>
 
-                        <p>{comment.text}</p>
+                        {editCommentId === comment._id ? (
+                            <>
+                                <textarea
+                                    value={editCommentText}
+                                    onChange={(e) => setEditCommentText(e.target.value)}
+                                />
+                                <br />
+                                <button onClick={() => updateComment(comment._id)}>
+                                    Save
+                                </button>
+                                <button onClick={() => setEditCommentId(null)}>
+                                    Cancel
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <p>{comment.text}</p>
+                                <button onClick={() => startEditComment(comment)}>
+                                    Edit
+                                </button>
+                                <button onClick={() => deleteComment(comment._id)}>
+                                    Delete
+                                </button>
+                            </>
+                        )}
                     </div>
                 ))
             )}
