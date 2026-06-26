@@ -84,10 +84,10 @@ function Navbar() {
                         : "🌙 Dark"}
                 </button>
                 {user ? (
-                    <>
+                    <div className="user-profile">
                         <span>👤 {user.username}</span>
                         <button onClick={logout}>Logout</button>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Link to="/login">Login</Link>
