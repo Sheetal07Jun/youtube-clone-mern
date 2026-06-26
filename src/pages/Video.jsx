@@ -241,12 +241,10 @@ function Video() {
         video.videoUrl?.split("v=")[1]?.split("&")[0];
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div className="video-page">
             <h1>{video.title}</h1>
 
-            <iframe
-                width="900"
-                height="500"
+            <iframe className="main-video-player"
                 src={`https://www.youtube.com/embed/${videoId}`}
                 title={video.title}
                 frameBorder="0"
