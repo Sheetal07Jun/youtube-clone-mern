@@ -19,8 +19,13 @@ function Navbar() {
         }
     }, [darkMode]);
 
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem("user"));
+        setUser(storedUser);
+    }, []);
+
     const handleSearch = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && keyword.trim()) {
             navigate(`/search/${keyword}`);
         }
     };
@@ -61,18 +66,6 @@ function Navbar() {
             <div className="nav-links">
                 <Link to="/">All</Link>
 
-                {user ? (
-                    <>
-                        <span>👤 {user.username}</span>
-                        <button onClick={logout}>Logout</button>
-                    </>
-                ) : (
-                    <>
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
-                    </>
-                )}
-        
                 <Link to="/playlists">Playlists</Link>
                 <Link to="/create-channel">Create Channel</Link>
                 <Link to="/upload">Upload</Link>
@@ -90,6 +83,17 @@ function Navbar() {
                         ? "☀️ Light"
                         : "🌙 Dark"}
                 </button>
+                {user ? (
+                    <>
+                        <span>👤 {user.username}</span>
+                        <button onClick={logout}>Logout</button>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
+                    </>
+                )}
             </div>
         </div>
     );
