@@ -715,7 +715,7 @@ body.dark .create-video-card {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px;
+    padding: 50px 20px;
 }
 
 .create-channel-card {
@@ -742,12 +742,33 @@ body.dark .create-video-card {
     min-height: 120px;
 }
 
+.create-channel-container {
+    width: 700px;
+}
+
 .create-channel-btn {
     width: 100%;
     background: #ff0000;
     color: white;
     font-size: 16px;
     border-radius: 25px;
+}
+
+
+.channel-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.create-channel-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.create-channel-card input,
+.create-channel-card textarea {
+    margin-bottom: 18px;
 }
 
 body.dark .create-channel-card {
