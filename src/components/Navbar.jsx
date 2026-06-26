@@ -50,9 +50,9 @@ function Navbar() {
     };
     return (
         <div className="navbar-center">
-            <h2 className="logo">
+            <Link to="/" className="logo">
                 YouTube Clone
-            </h2>
+            </Link>
 
             <input
                 type="text"

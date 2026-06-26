@@ -38,6 +38,7 @@ a {
     font-size: 28px;
     font-weight: bold;
     min-width: 210px;
+    cursor: pointer;
 
 }
 
@@ -57,7 +58,7 @@ a {
 }
 
 .search-input {
-    max-width: 420px;
+    max-width: 500px;
     height: 42px;
     border-radius: 25px;
     border: 1px solid #ccc;
@@ -255,6 +256,7 @@ button {
 button:hover {
     opacity: 0.9;
     background: #dcdcdc;
+    transform: scale(1.03);
 }
 
 /* ================ FORMS ============= */
